@@ -1,13 +1,59 @@
-import ImgCard from '../components/ImgCard';
+import ImgCard from '../mini-factory/ImgCard';
 import Form from '../components/Form';
+import Success from '../components/Success';
 import bg from '../images/bg-main-desktop.png'
 import front from '../images/bg-card-front.png'
 import back from '../images/bg-card-back.png'
+import { useState } from 'react'
 
 function App() {
   const mainBg = ['w-483', 'h-screen', 'absolute', 'left-0', '-z-20'].join(' ')
   const frontCard = ['w-full', 'h-full', 'absolute', 'left-0', '-z-10'].join(' ')
   const backCard = ['w-full', 'h-full', 'absolute', 'left-0', '-z-10'].join(' ')
+  const [user, setUser] = useState('your name')
+  const [number, setNumber] = useState('0000 0000 0000 0000')
+  const [month, setMonth] = useState('MM')
+  const [year, setYear] = useState('YY')
+  const [cvc, setCvc] = useState('000')
+  const [success, setSuccess] = useState(false)
+
+  const handleSubmit = () => {
+      if(user === ''|| user === 'your name'){
+        alert('請輸入正確名稱')
+        return
+      }
+      if(number === ''|| user === '0000 0000 0000 0000'){
+        alert('請輸入正確卡片號碼')
+        return
+      }
+      if(month === ''|| month === 'MM' || year === ''|| year === 'YY'){
+        alert('請輸入正確日期期限')
+        return
+      }
+      if(cvc === ''|| cvc === '000'){
+        alert('請輸入正確安全碼')
+        return
+      }
+      setSuccess(true)
+  }
+  const resetType = () =>{
+    setUser('your name')
+    setNumber('0000 0000 0000 0000')
+    setMonth('MM')
+    setYear('YY')
+    setCvc('000')
+    setSuccess(false)
+  }
+
+  const data = {
+    user: setUser,
+    number: setNumber,
+    month: setMonth, 
+    year: setYear,
+    cvc: setCvc,
+    handleSubmit: handleSubmit,
+    resetType: resetType
+  }
 
   return (
     <div className="flex justify-center relative">
@@ -24,7 +70,7 @@ function App() {
             <div id="number" className='w-11/12 h-10 font-bold text-white rounded-lg text-3xl mt-12'>{number}</div>
             <div id="name-box" className='w-full flex justify-between items-center text-base text-white mt-6'>
               <div className="name font-bold">{user}</div>
-              <div className="date">{year}/{month}</div>
+              <div className="date">{month}/{year}</div>
             </div>
           </div>
           <div id="back" className='w-447 h-245 mt-8 ml-52 relative'>
@@ -32,9 +78,7 @@ function App() {
             <div className="cvc-num text-white text-base absolute right-20 top-28">{cvc}</div>
           </div>
         </div>
-        {/* 輸入資料 */}
-        <Form></Form>
-        {/* 成功 */}
+        { success? <Success data={data}></Success> : <Form data={data}></Form> }
       </div>
     </div>
   );

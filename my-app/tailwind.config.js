@@ -12,10 +12,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'purple': '#21092f'
+        'purple': '#21092f',
+        'dgray': '#9e9c9e'
       },
       width: {
-        '447': '28rem',
+        '300': '300px',
+        '447': '447px',
         'p483': '483px'
       },
       height: {
