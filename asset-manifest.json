@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/projectVisa/static/css/main.bcf721cd.css",
+    "main.js": "/projectVisa/static/js/main.69310755.js",
+    "static/media/bg-main-desktop.png": "/projectVisa/static/media/bg-main-desktop.806e7aa7b4dbc1d78bc3.png",
+    "static/media/bg-card-back.png": "/projectVisa/static/media/bg-card-back.23f68fa3aa3d5b33dfc8.png",
+    "static/media/bg-card-front.png": "/projectVisa/static/media/bg-card-front.8153e2ca184402a8385f.png",
+    "index.html": "/projectVisa/index.html",
+    "static/media/icon-complete.svg": "/projectVisa/static/media/icon-complete.8fd757c0c5c44b1d597ca411400e046d.svg",
+    "main.bcf721cd.css.map": "/projectVisa/static/css/main.bcf721cd.css.map",
+    "main.69310755.js.map": "/projectVisa/static/js/main.69310755.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bcf721cd.css",
+    "static/js/main.69310755.js"
+  ]
+}
